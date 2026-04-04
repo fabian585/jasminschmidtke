@@ -4,12 +4,40 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jasmin Schmidtke – Die besten Tipps für Frauen ab 40</title>
-  <meta name="description" content="Heilpraktikerin Jasmin schickt dir jede Woche die wichtigsten Insider-Tipps zu Haut, Hormonen und Energie – verständlich erklärt, sofort umsetzbar." />
+  <meta name="description" content="Heilpraktikerin Jasmin schickt dir jede Woche die wichtigsten Insider-Tipps zu Haut, Hormonen und Energie – verständlich erklärt, sofort umsetzbar. Jetzt kostenlos anmelden." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Jasmin Schmidtke" />
+  <link rel="canonical" href="https://www.jasminschmidtke.de/" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon-32x32.png" sizes="32x32" type="image/png" />
+  <link rel="icon" href="favicon-16x16.png" sizes="16x16" type="image/png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <meta name="theme-color" content="#BFA492" />
+
+  <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Jasmin Schmidtke – Die besten Tipps für Frauen ab 40" />
+  <meta property="og:description" content="Jede Woche die wichtigsten Insider-Tipps zu Haut, Hormonen und Energie – verständlich erklärt, sofort umsetzbar. Kostenlos anmelden." />
+  <meta property="og:url" content="https://www.jasminschmidtke.de/" />
+  <meta property="og:image" content="https://www.jasminschmidtke.de/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:site_name" content="Jasmin Schmidtke" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Jasmin Schmidtke – Die besten Tipps für Frauen ab 40" />
+  <meta name="twitter:description" content="Jede Woche Insider-Tipps zu Haut, Hormonen und Energie – kostenlos anmelden." />
+  <meta name="twitter:image" content="https://www.jasminschmidtke.de/og-image.jpg" />
 
   <!-- Fonts: Playfair Display (headings) + Poppins (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <style>
     /* ─────────────────────────────────────────
@@ -101,6 +129,30 @@
 
     .navbar {
       animation: fadeIn 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) 0s both;
+    }
+
+    /* Badge über der Überschrift */
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(191, 164, 146, 0.12);
+      border: 1.5px solid rgba(191, 164, 146, 0.35);
+      border-radius: 50px;
+      padding: 8px 18px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.01em;
+      margin-bottom: 20px;
+      animation: fadeInUp 0.55s cubic-bezier(0.25, 0.1, 0.25, 1) 0.02s both;
+    }
+
+    .hero-badge svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
     }
 
     .hero-heading {
@@ -549,7 +601,7 @@
     ───────────────────────────────────────── */
     .rotating-badge {
       position: absolute;
-      top: -42px;
+      top: -10px;
       left: -55px;
       width: 158px;
       height: 158px;
@@ -601,8 +653,8 @@
 
     /* Stern zentriert */
     .badge-star-svg {
-      width: 55%;
-      height: 55%;
+      width: 36%;
+      height: 36%;
       pointer-events: none;
     }
 
@@ -665,6 +717,288 @@
       max-width: 480px;
       margin: 0 auto 48px;
       line-height: 1.5;
+    }
+
+    /* ─────────────────────────────────────────
+       PHONE MOCKUP SECTION
+    ───────────────────────────────────────── */
+    .phone-section {
+      padding: 60px 44px 80px;
+      overflow: hidden;
+    }
+
+    .phone-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .phone-text {
+      flex: 1.2;
+      min-width: 0;
+    }
+
+    .phone-text h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.8rem, 3.5vw, 38px);
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    .phone-text h2 .accent {
+      color: var(--accent);
+      font-style: italic;
+    }
+
+    .phone-text p {
+      font-size: 16px;
+      color: var(--text-body);
+      line-height: 1.65;
+      max-width: 440px;
+      margin-bottom: 28px;
+    }
+
+    .phone-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--green-btn);
+      color: #fff;
+      border-radius: 257px;
+      padding: 14px 30px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      transition: background 0.2s, transform 0.15s;
+      cursor: pointer;
+    }
+
+    .phone-cta:hover {
+      background-color: var(--green-hover);
+      transform: translateY(-1px);
+    }
+
+    .phone-cta svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    .phone-cta .cta-arrow {
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+
+    .phone-cta:hover .cta-arrow {
+      transform: translateX(3px);
+    }
+
+    /* iPhone frame */
+    .phone-wrap {
+      flex-shrink: 0;
+      position: relative;
+      width: 300px;
+    }
+
+    .phone-device {
+      width: 280px;
+      border-radius: 40px;
+      background: #1a1a1a;
+      padding: 14px;
+      box-shadow:
+        0 30px 60px rgba(0,0,0,0.12),
+        0 8px 24px rgba(0,0,0,0.08),
+        inset 0 0 0 1.5px rgba(255,255,255,0.08);
+      position: relative;
+    }
+
+    /* Notch */
+    .phone-notch {
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 28px;
+      background: #1a1a1a;
+      border-radius: 0 0 18px 18px;
+      z-index: 3;
+    }
+
+    .phone-screen {
+      width: 100%;
+      border-radius: 28px;
+      overflow: hidden;
+      background: #fff;
+      position: relative;
+    }
+
+    /* Newsletter content inside phone */
+    .phone-content {
+      padding: 44px 20px 24px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .phone-content .pc-from {
+      font-size: 9px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+      letter-spacing: 0.03em;
+    }
+
+    .phone-content .pc-subject {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.25;
+      margin-bottom: 14px;
+    }
+
+    .phone-content .pc-divider {
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 14px;
+    }
+
+    .phone-content .pc-greeting {
+      font-size: 11px;
+      color: var(--text-body);
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    .phone-content .pc-heading {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .phone-content .pc-body {
+      font-size: 10.5px;
+      color: var(--text-body);
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .phone-content .pc-tip {
+      background: rgba(191,164,146,0.1);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 10px 12px;
+      margin-bottom: 14px;
+    }
+
+    .phone-content .pc-tip strong {
+      display: block;
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .phone-content .pc-tip span {
+      font-size: 10.5px;
+      color: var(--text-body);
+      line-height: 1.5;
+    }
+
+    .phone-content .pc-cta {
+      display: block;
+      text-align: center;
+      background: var(--accent);
+      color: #fff;
+      font-size: 10.5px;
+      font-weight: 600;
+      padding: 9px 16px;
+      border-radius: 50px;
+      letter-spacing: 0.02em;
+    }
+
+    /* Floating trust badges */
+    .trust-badge {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      border-radius: 14px;
+      padding: 10px 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04);
+      white-space: nowrap;
+      z-index: 4;
+    }
+
+    .trust-badge-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(191,164,146,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .trust-badge-icon svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--accent);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .trust-badge-text {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-dark);
+      line-height: 1.3;
+    }
+
+    .trust-badge--top {
+      top: 30px;
+      left: -60px;
+      animation: floatBadge 3s ease-in-out infinite;
+    }
+
+    .trust-badge--right {
+      top: 50%;
+      right: -70px;
+      animation: floatBadge 3s ease-in-out 0.5s infinite;
+    }
+
+    .trust-badge--bottom {
+      bottom: 50px;
+      left: -50px;
+      animation: floatBadge 3s ease-in-out 1s infinite;
+    }
+
+    @keyframes floatBadge {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-6px); }
+    }
+
+    /* Scroll reveal for phone section */
+    .phone-section .phone-inner {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .phone-section .phone-inner.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .gallery-grid {
@@ -1053,9 +1387,12 @@
        RESPONSIVE – TABLET
     ───────────────────────────────────────── */
     @media (max-width: 960px) {
-      nav.navbar { padding: 16px 24px; }
-      .nav-cta { font-size: 12px; padding: 8px 16px; }
-      .nav-cta svg { width: 12px; height: 12px; }
+      /* Navbar zentriert auf mobile */
+      nav.navbar {
+        padding: 16px 24px;
+        justify-content: center;
+      }
+      .nav-cta { display: none; }
 
       .hero {
         padding: 82px 24px 48px;
@@ -1067,11 +1404,18 @@
         gap: 0;
       }
 
-      /* Image above text on mobile */
-      .hero-image-wrap {
+      /* Text first, image below on mobile */
+      .hero-text {
         order: -1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-image-wrap {
+        order: 1;
         justify-content: center;
-        margin-bottom: 36px;
+        margin-top: 36px;
       }
 
       .arch-frame { width: 280px; }
@@ -1081,15 +1425,83 @@
         top: -30px; left: -38px;
       }
 
-      .newsletter-form { max-width: 100%; }
+      .newsletter-form {
+        max-width: 100%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
 
+      .hero-badge {
+        margin: 0 auto 18px;
+        font-size: 12px;
+        padding: 7px 14px;
+        text-align: center;
+      }
 
       .hero-heading {
         font-size: clamp(1.75rem, 6.5vw, 2.4rem);
         text-align: center;
       }
-      .hero-body { text-align: center; margin: 0 auto 28px; }
-      .newsletter-form { margin: 0 auto; }
+
+      .hero-body {
+        text-align: center;
+        margin: 0 auto 28px;
+      }
+
+      .input-row { width: 100%; }
+
+      .btn-submit {
+        align-self: center;
+      }
+
+      .checkbox-row {
+        justify-content: center;
+      }
+
+      /* Phone mockup section – tablet */
+      .phone-section { padding: 40px 24px 40px; }
+      .phone-inner { flex-direction: column; gap: 36px; text-align: center; }
+      .phone-text p { margin: 0 auto 24px; }
+      .phone-cta { padding: 12px 26px; font-size: 14px; }
+
+      /* Crop phone to upper portion with fade-out */
+      .phone-wrap {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+        position: relative;
+        height: 380px;
+        overflow: hidden;
+      }
+
+      /* Fade-out gradient at bottom */
+      .phone-wrap::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 120px;
+        background: linear-gradient(to bottom, transparent, var(--cream));
+        z-index: 5;
+        pointer-events: none;
+      }
+
+      .phone-device {
+        width: 260px;
+        margin: 0 auto;
+      }
+
+      /* Reposition badges for cropped phone */
+      .trust-badge { padding: 8px 12px; }
+      .trust-badge-text { font-size: 11px; }
+      .trust-badge-icon { width: 28px; height: 28px; }
+      .trust-badge-icon svg { width: 14px; height: 14px; }
+      .trust-badge--top { left: 0px; top: 10px; }
+      .trust-badge--right { right: 0px; top: 35%; }
+      .trust-badge--bottom { left: 5px; bottom: auto; top: 60%; }
 
       .gallery { padding: 32px 24px 60px; }
       .gallery-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; gap: 20px; }
@@ -1106,9 +1518,13 @@
        RESPONSIVE – MOBILE
     ───────────────────────────────────────── */
     @media (max-width: 480px) {
+      nav.navbar { padding: 14px 18px; }
+
       .hero { padding: 76px 18px 36px; }
       .arch-frame { width: 230px; }
       .hero-heading { font-size: clamp(1.8rem, 8vw, 2.4rem); }
+      .hero-badge { font-size: 11px; padding: 6px 12px; gap: 5px; }
+      .hero-badge svg { width: 14px; height: 14px; }
 
       .rotating-badge {
         width: 108px; height: 108px;
@@ -1117,6 +1533,20 @@
 
       .sparkle { width: 26px; height: 26px; right: -12px; bottom: 14px; }
 
+      .phone-section { padding: 28px 18px 32px; }
+      .phone-wrap { height: 340px; max-width: 290px; }
+      .phone-device { width: 230px; border-radius: 34px; padding: 11px; }
+      .phone-screen { border-radius: 24px; }
+      .phone-notch { width: 82px; height: 22px; }
+      .phone-content { padding: 38px 16px 20px; }
+      .phone-content .pc-subject { font-size: 14px; }
+      .trust-badge--top { left: -5px; top: 5px; }
+      .trust-badge--right { right: -5px; top: 30%; }
+      .trust-badge--bottom { left: 0; top: 58%; }
+      .trust-badge { padding: 6px 10px; border-radius: 10px; }
+      .trust-badge-text { font-size: 10px; }
+      .trust-badge-icon { width: 24px; height: 24px; }
+      .trust-badge-icon svg { width: 12px; height: 12px; }
       .gallery { padding: 24px 18px 48px; }
       .youtube-section { padding: 48px 18px; }
 
@@ -1132,11 +1562,9 @@
   <nav class="navbar" role="navigation" aria-label="Hauptnavigation">
     <a href="/" class="logo" aria-label="Jasmin Schmidtke – Startseite">
       <!-- Logo icon: gefüllter Kreis in Accent-Farbe mit Blatt -->
-      <svg class="logo-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <circle cx="16" cy="16" r="15.5" fill="#BFA492"/>
-        <!-- Blatt/Auge-Design (weiß) -->
-        <path d="M 6.5 16 Q 16 6.5 25.5 16 Q 16 25.5 6.5 16 Z" fill="none" stroke="white" stroke-width="1.1" opacity="0.85"/>
-        <line x1="16" y1="6.8" x2="16" y2="25.2" stroke="white" stroke-width="0.9" opacity="0.85"/>
+      <svg class="logo-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="100" cy="100" r="82" fill="none" stroke="#BFA492" stroke-width="11"/>
+        <path d="M 18,100 C 45,118 65,118 100,95 C 135,72 155,72 182,100" fill="none" stroke="#BFA492" stroke-width="7" stroke-linecap="round"/>
       </svg>
       <span class="logo-lines">
         <span>Jasmin</span>
@@ -1161,6 +1589,13 @@
 
         <!-- ── LEFT: Text + Form ── -->
         <div class="hero-text">
+
+          <div class="hero-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/>
+            </svg>
+            Der einzige Newsletter, den du als Frau Ü40 brauchst
+          </div>
 
           <h1 class="hero-heading">
             Die besten Tipps für<br>
@@ -1259,7 +1694,7 @@
                   </defs>
                   <text class="badge-text">
                     <textPath href="#circlePath" startOffset="0%">
-                      Attraktiv ab 40 und  aufblühen statt altern -
+                      Attraktiv ab 40 und aufblühen statt altern &#160;–&#160;
                     </textPath>
                   </text>
                 </svg>
@@ -1297,6 +1732,89 @@
           </div>
         </div>
 
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         PHONE MOCKUP – Newsletter Preview
+    ═══════════════════════════════════════ -->
+    <section class="phone-section" aria-label="Newsletter Vorschau">
+      <div class="phone-inner">
+
+        <!-- Text left -->
+        <div class="phone-text">
+          <h2>
+            So sieht dein<br><span class="accent">wöchentlicher Impuls</span> aus
+          </h2>
+          <p>
+            Jede Woche bekommst du eine kompakte E-Mail mit den besten Tipps rund um Haut, Hormone und Energie – praxisnah, leicht umsetzbar und speziell für Frauen ab 40.
+          </p>
+
+          <a href="#" onclick="event.preventDefault();window.scrollTo({top:0,behavior:'smooth'});" class="phone-cta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/>
+            </svg>
+            Kostenlos Tipps erhalten
+            <span class="cta-arrow">→</span>
+          </a>
+        </div>
+
+        <!-- Phone right -->
+        <div class="phone-wrap">
+
+          <!-- Trust badge: top-left -->
+          <div class="trust-badge trust-badge--top">
+            <div class="trust-badge-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <span class="trust-badge-text">Jederzeit<br>abbestellbar</span>
+          </div>
+
+          <!-- Trust badge: right -->
+          <div class="trust-badge trust-badge--right">
+            <div class="trust-badge-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <span class="trust-badge-text">Kein Spam.<br>Nur Qualität.</span>
+          </div>
+
+          <!-- Trust badge: bottom-left -->
+          <div class="trust-badge trust-badge--bottom">
+            <div class="trust-badge-icon">
+              <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <span class="trust-badge-text">100%<br>kostenlos</span>
+          </div>
+
+          <!-- iPhone device -->
+          <div class="phone-device">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <div class="phone-content">
+
+                <p class="pc-from">Von: Jasmin Schmidtke</p>
+                <p class="pc-subject">Dein Wochentipp: Warum deine Haut ab 40 anders tickt</p>
+                <div class="pc-divider"></div>
+
+                <p class="pc-greeting">Hallo und schön, dass du dabei bist!</p>
+
+                <p class="pc-heading">Wusstest du das?</p>
+                <p class="pc-body">
+                  Ab 40 verändert sich dein Hormonhaushalt spürbar – und das zeigt sich oft zuerst an der Haut. Doch mit den richtigen Nährstoffen und einfachen Routinen kannst du gezielt gegensteuern.
+                </p>
+
+                <div class="pc-tip">
+                  <strong>Tipp der Woche</strong>
+                  <span>Starte deinen Morgen mit einem Glas warmem Wasser und Zitrone – das regt den Stoffwechsel an und unterstützt dein Hautbild von innen.</span>
+                </div>
+
+                <span class="pc-cta">Mehr dazu lesen →</span>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
 
@@ -1472,10 +1990,9 @@
       <!-- Brand block -->
       <div class="footer-brand">
         <div class="footer-logo">
-          <svg width="26" height="26" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <circle cx="16" cy="16" r="15.5" fill="#BFA492"/>
-            <path d="M 6.5 16 Q 16 6.5 25.5 16 Q 16 25.5 6.5 16 Z" fill="none" stroke="white" stroke-width="1.1" opacity="0.85"/>
-            <line x1="16" y1="6.8" x2="16" y2="25.2" stroke="white" stroke-width="0.9" opacity="0.85"/>
+          <svg width="26" height="26" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="100" cy="100" r="82" fill="none" stroke="#BFA492" stroke-width="11"/>
+            <path d="M 18,100 C 45,118 65,118 100,95 C 135,72 155,72 182,100" fill="none" stroke="#BFA492" stroke-width="7" stroke-linecap="round"/>
           </svg>
           <span class="logo-lines" style="font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:12px;letter-spacing:0.05em;">
             <span>Jasmin</span>
@@ -1527,7 +2044,7 @@
 
       <!-- Copyright -->
       <p class="footer-copy">
-        © 2026 – <strong>Jasmin Schmidtke</strong> · Marketing von Schmidtke GmbH
+        © 2026 – <strong>Jasmin Schmidtke</strong> · Marketing von <a href="https://www.schmidtke-gmbh.de?utm_source=jasminschmidtke&utm_medium=website&utm_campaign=footer_link" target="_blank" rel="noopener noreferrer" style="color:var(--text-muted);text-decoration:underline;text-underline-offset:2px;">Schmidtke GmbH</a>
       </p>
 
     </div>
@@ -1580,6 +2097,21 @@
         });
       }, { threshold: 0.05 });
       observer.observe(footer);
+    })();
+
+    /* Phone section scroll-in */
+    (function() {
+      var phoneInner = document.querySelector('.phone-inner');
+      if (!phoneInner) return;
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      observer.observe(phoneInner);
     })();
 
     /* Gallery + YouTube cards scroll-in animation */
@@ -1672,25 +2204,29 @@
         return;
       }
 
-      /*
-       * ── NEWSLETTER INTEGRATION (Active Campaign) ──────────────
-       * Ersetze diesen Kommentar mit deinem Active Campaign API Call:
-       *
-       * fetch('https://DEINE-ACCOUNT.api-us1.com/api/3/contacts', {
-       *   method: 'POST',
-       *   headers: {
-       *     'Content-Type': 'application/json',
-       *     'Api-Token': 'DEIN_API_TOKEN'
-       *   },
-       *   body: JSON.stringify({
-       *     contact: { email: email }
-       *   })
-       * });
-       * ────────────────────────────────────────────────────────
-       */
+      /* ── Active Campaign Integration ────────────────────── */
+      var formData = new FormData();
+      formData.append('u', '1');
+      formData.append('f', '1');
+      formData.append('s', '');
+      formData.append('c', '0');
+      formData.append('m', '0');
+      formData.append('act', 'sub');
+      formData.append('v', '2');
+      formData.append('or', '5bc6d892-039c-4f17-9b26-fe1550cf55b6');
+      formData.append('email', email);
 
-      /* Erfolg: Feminine Overlay-Animation zeigen, dann weiterleiten */
+      /* Animation sofort starten */
       showSubmitAnimation();
+
+      /* Daten an Active Campaign senden */
+      fetch('https://jasminschmidtke70927.activehosted.com/proc.php', {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors'
+      }).catch(function() {
+        /* Fehler still ignorieren – Nutzer wird trotzdem weitergeleitet */
+      });
     }
 
     function showSubmitAnimation() {
@@ -1720,5 +2256,34 @@
     }
   </script>
 
+  <!-- Structured Data (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jasmin Schmidtke",
+    "jobTitle": "Heilpraktikerin",
+    "description": "Coach und Heilpraktikerin für Frauen ab 40 – Tipps zu Haut, Hormonen und Energie.",
+    "url": "https://www.jasminschmidtke.de",
+    "sameAs": [
+      "https://instagram.com",
+      "https://youtube.com"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Jasmin Schmidtke",
+    "url": "https://www.jasminschmidtke.de",
+    "description": "Die besten Tipps für Frauen ab 40 – Haut, Hormone und Energie",
+    "inLanguage": "de-DE",
+    "publisher": {
+      "@type": "Person",
+      "name": "Jasmin Schmidtke"
+    }
+  }
+  </script>
 </body>
 </html>

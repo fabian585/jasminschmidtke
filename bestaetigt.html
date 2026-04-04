@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fast geschafft – Jasmin Schmidtke</title>
-  <meta name="description" content="Bitte bestätige jetzt deine E-Mail-Adresse, um die wöchentlichen Tipps von Jasmin Schmidtke zu erhalten." />
+  <title>Anmeldung bestätigt – Jasmin Schmidtke</title>
+  <meta name="description" content="Deine Anmeldung zum Newsletter von Jasmin Schmidtke ist bestätigt. Du erhältst ab jetzt wöchentlich die besten Tipps." />
   <meta name="robots" content="noindex, nofollow" />
-  <link rel="canonical" href="https://www.jasminschmidtke.de/danke.html" />
+  <link rel="canonical" href="https://www.jasminschmidtke.de/bestaetigt.html" />
 
   <!-- Favicon -->
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
@@ -29,6 +29,8 @@
       --text-muted:  #808080;
       --accent:      #BFA492;
       --accent-light:#d4bfb0;
+      --green-btn:   #6B8C5A;
+      --green-hover: #7A9E68;
       --border:      #DDD6CE;
       --grid-line:   rgba(150, 130, 110, 0.12);
     }
@@ -72,38 +74,29 @@
       from { opacity: 0; }
       to   { opacity: 1; }
     }
-    @keyframes floatSoft {
-      0%, 100% { transform: translateY(0); }
-      50%      { transform: translateY(-8px); }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.6); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    @keyframes checkDraw {
+      0%   { stroke-dashoffset: 60; }
+      100% { stroke-dashoffset: 0; }
+    }
+    @keyframes ringPulse {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.4; }
+      50%      { transform: translate(-50%, -50%) scale(1.15); opacity: 0; }
+    }
+    @keyframes confettiFall {
+      0%   { transform: translateY(-10px) rotate(0deg); opacity: 0; }
+      10%  { opacity: 1; }
+      90%  { opacity: 1; }
+      100% { transform: translateY(calc(100vh + 20px)) rotate(720deg); opacity: 0; }
     }
     @keyframes petalDrift {
       0%   { transform: translateY(-20px) rotate(0deg); opacity: 0; }
       15%  { opacity: 1; }
       85%  { opacity: 1; }
       100% { transform: translateY(calc(100vh + 20px)) rotate(360deg); opacity: 0; }
-    }
-
-    /* SVG Mail-Envelope Animation */
-    @keyframes envelopeOpen {
-      0%   { transform: rotateX(0deg); }
-      50%  { transform: rotateX(-180deg); }
-      100% { transform: rotateX(-180deg); }
-    }
-    @keyframes letterSlide {
-      0%   { transform: translateY(0); }
-      40%  { transform: translateY(0); }
-      70%  { transform: translateY(-18px); }
-      100% { transform: translateY(-18px); }
-    }
-    @keyframes checkDraw {
-      0%   { stroke-dashoffset: 24; opacity: 0; }
-      60%  { stroke-dashoffset: 24; opacity: 0; }
-      80%  { opacity: 1; }
-      100% { stroke-dashoffset: 0; opacity: 1; }
-    }
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(191,164,146,0.4); }
-      50%      { box-shadow: 0 0 0 16px rgba(191,164,146,0); }
     }
 
     /* ── Navbar ── */
@@ -135,8 +128,8 @@
     .logo-lines { display: flex; flex-direction: column; gap: 0; }
     .logo-lines span { display: block; }
 
-    /* ── Thank You Section ── */
-    .thankyou {
+    /* ── Confirmed Section ── */
+    .confirmed {
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -145,107 +138,91 @@
       text-align: center;
     }
 
-    .thankyou-inner {
-      max-width: 640px;
+    .confirmed-inner {
+      max-width: 600px;
       margin: 0 auto;
     }
 
-    /* ── Animated Mail SVG ── */
-    .mail-animation {
+    /* ── Success Circle ── */
+    .success-circle {
       width: 120px;
-      height: 100px;
+      height: 120px;
       margin: 0 auto 36px;
       position: relative;
-      animation: fadeInUp 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) 0.1s both;
+      animation: scaleIn 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) 0.1s both;
     }
 
-    .mail-svg {
+    .success-ring {
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      opacity: 0.3;
+      animation: ringPulse 2.5s ease-in-out 1.5s infinite;
+    }
+
+    .success-svg {
       width: 100%;
       height: 100%;
+      position: relative;
+      z-index: 1;
     }
 
-    /* Envelope body */
-    .env-body {
-      fill: #fff;
-      stroke: var(--accent);
-      stroke-width: 1.8;
+    .success-bg {
+      fill: var(--accent);
+      opacity: 0.12;
     }
 
-    /* Envelope flap — animates open */
-    .env-flap {
-      fill: #fff;
-      stroke: var(--accent);
-      stroke-width: 1.8;
-      transform-origin: 60px 30px;
-      animation: envelopeOpen 2s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards;
-    }
-
-    /* Letter inside — slides up */
-    .env-letter {
-      fill: var(--cream);
-      stroke: var(--accent-light);
-      stroke-width: 1.2;
-      animation: letterSlide 2s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards;
-    }
-
-    /* Checkmark on letter — draws in */
-    .env-check {
-      stroke: var(--accent);
-      stroke-width: 3;
+    .success-check {
+      stroke: var(--green-btn);
+      stroke-width: 4;
       stroke-linecap: round;
       stroke-linejoin: round;
       fill: none;
-      stroke-dasharray: 24;
-      stroke-dashoffset: 24;
-      animation: checkDraw 2s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards;
+      stroke-dasharray: 60;
+      stroke-dashoffset: 60;
+      animation: checkDraw 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards;
     }
 
-    /* Pulsing glow ring around the mail */
-    .mail-glow {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      animation: pulse 2.5s ease-in-out 2s infinite;
-    }
-
-    .thankyou-heading {
+    .confirmed-heading {
       font-family: 'Playfair Display', Georgia, serif;
       font-size: clamp(2rem, 4vw, 44px);
       font-weight: 700;
       color: var(--text-dark);
       line-height: 1.15;
       margin-bottom: 16px;
-      animation: fadeInUp 0.55s cubic-bezier(0.25, 0.1, 0.25, 1) 0.2s both;
+      animation: fadeInUp 0.55s cubic-bezier(0.25, 0.1, 0.25, 1) 0.3s both;
     }
 
-    .thankyou-heading .accent {
+    .confirmed-heading .accent {
       color: var(--accent);
       font-style: italic;
     }
 
-    .thankyou-sub {
+    .confirmed-heading .green {
+      color: var(--green-btn);
+    }
+
+    .confirmed-sub {
       font-size: 17px;
       font-weight: 400;
       color: var(--text-body);
-      line-height: 1.6;
+      line-height: 1.65;
       margin-bottom: 40px;
-      animation: fadeInUp 0.55s cubic-bezier(0.25, 0.1, 0.25, 1) 0.3s both;
+      animation: fadeInUp 0.55s cubic-bezier(0.25, 0.1, 0.25, 1) 0.4s both;
     }
 
-    /* ── Steps ── */
-    .steps {
+    /* ── What's Next Cards ── */
+    .next-steps {
       display: flex;
       flex-direction: column;
-      gap: 16px;
-      margin-bottom: 36px;
+      gap: 14px;
+      margin-bottom: 40px;
       text-align: left;
     }
 
-    .step-card {
+    .next-card {
       background: #fff;
       border: 1.5px solid var(--border);
       border-radius: 14px;
@@ -256,27 +233,27 @@
       animation: fadeInUp 0.55s cubic-bezier(0.25, 0.1, 0.25, 1) both;
     }
 
-    .step-card:nth-child(1) { animation-delay: 0.35s; }
-    .step-card:nth-child(2) { animation-delay: 0.45s; }
-    .step-card:nth-child(3) { animation-delay: 0.55s; }
+    .next-card:nth-child(1) { animation-delay: 0.5s; }
+    .next-card:nth-child(2) { animation-delay: 0.6s; }
+    .next-card:nth-child(3) { animation-delay: 0.7s; }
 
-    .step-icon {
+    .next-icon {
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      background: linear-gradient(135deg, var(--green-btn), var(--green-hover));
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
     }
 
-    .step-icon svg {
+    .next-icon svg {
       width: 20px;
       height: 20px;
     }
 
-    .step-content h3 {
+    .next-content h3 {
       font-family: 'Playfair Display', Georgia, serif;
       font-size: 16px;
       font-weight: 700;
@@ -284,44 +261,37 @@
       margin-bottom: 4px;
     }
 
-    .step-content p {
+    .next-content p {
       font-size: 14px;
       color: var(--text-body);
       line-height: 1.55;
     }
 
-    .step-content p strong {
+    .next-content p strong {
       color: var(--text-dark);
       font-weight: 600;
     }
 
-    .spam-hint {
-      font-size: 13px;
-      color: var(--text-muted);
-      text-align: center;
-      margin-bottom: 32px;
-      animation: fadeInUp 0.55s cubic-bezier(0.25, 0.1, 0.25, 1) 0.6s both;
-    }
-
-    .spam-hint strong {
-      color: var(--text-body);
-      font-weight: 500;
-    }
-
-    /* Back link */
-    .back-link {
+    /* CTA Button */
+    .confirmed-cta {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      color: var(--accent);
-      font-size: 14px;
-      font-weight: 500;
-      transition: color 0.2s;
-      animation: fadeInUp 0.55s cubic-bezier(0.25, 0.1, 0.25, 1) 0.65s both;
+      gap: 10px;
+      background: var(--green-btn);
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 14px 32px;
+      border-radius: 60px;
+      transition: background 0.25s, transform 0.15s;
+      animation: fadeInUp 0.55s cubic-bezier(0.25, 0.1, 0.25, 1) 0.8s both;
     }
-    .back-link:hover { color: var(--text-dark); }
-    .back-link .arrow { transition: transform 0.2s; display: inline-block; }
-    .back-link:hover .arrow { transform: translateX(-3px); }
+    .confirmed-cta:hover {
+      background: var(--green-hover);
+      transform: translateY(-1px);
+    }
+    .confirmed-cta svg { width: 18px; height: 18px; }
 
     /* ── Falling petals ── */
     .petal {
@@ -410,22 +380,24 @@
     /* ── Responsive ── */
     @media (max-width: 960px) {
       nav.navbar { padding: 16px 24px; }
-      .thankyou { padding: 100px 24px 60px; }
-      .step-card { padding: 18px 20px; }
+      .confirmed { padding: 100px 24px 60px; }
+      .next-card { padding: 18px 20px; }
       footer { padding: 40px 24px 24px; }
       .footer-bottom { flex-direction: column; align-items: flex-start; }
     }
 
     @media (max-width: 480px) {
-      .thankyou { padding: 90px 18px 48px; }
-      .mail-animation { width: 100px; height: 85px; margin-bottom: 28px; }
-      .thankyou-heading { font-size: clamp(1.6rem, 7vw, 2rem); }
-      .thankyou-sub { font-size: 15px; }
-      .step-card { padding: 16px 16px; gap: 12px; }
-      .step-icon { width: 36px; height: 36px; }
-      .step-icon svg { width: 18px; height: 18px; }
-      .step-content h3 { font-size: 15px; }
-      .step-content p { font-size: 13px; }
+      .confirmed { padding: 90px 18px 48px; }
+      .success-circle { width: 100px; height: 100px; margin-bottom: 28px; }
+      .success-ring { width: 100px; height: 100px; }
+      .confirmed-heading { font-size: clamp(1.6rem, 7vw, 2rem); }
+      .confirmed-sub { font-size: 15px; }
+      .next-card { padding: 16px 16px; gap: 12px; }
+      .next-icon { width: 36px; height: 36px; }
+      .next-icon svg { width: 18px; height: 18px; }
+      .next-content h3 { font-size: 15px; }
+      .next-content p { font-size: 13px; }
+      .confirmed-cta { font-size: 14px; padding: 12px 28px; }
       footer { padding: 32px 18px 20px; }
     }
   </style>
@@ -451,86 +423,72 @@
 
   <!-- MAIN -->
   <main>
-    <section class="thankyou" aria-label="Bestätigung">
-      <div class="thankyou-inner">
+    <section class="confirmed" aria-label="Anmeldung bestätigt">
+      <div class="confirmed-inner">
 
-        <!-- ── Animated Envelope SVG ── -->
-        <div class="mail-animation">
-          <div class="mail-glow"></div>
-          <svg class="mail-svg" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Letter (slides up) -->
-            <g class="env-letter-group" style="animation: letterSlide 2s cubic-bezier(0.4,0,0.2,1) 0.5s forwards;">
-              <rect class="env-letter" x="28" y="25" width="64" height="50" rx="4"/>
-              <!-- Lines on letter -->
-              <line x1="40" y1="42" x2="80" y2="42" stroke="var(--accent-light)" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
-              <line x1="40" y1="50" x2="72" y2="50" stroke="var(--accent-light)" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
-              <!-- Checkmark (draws in) -->
-              <polyline class="env-check" points="50,46 56,52 70,38"/>
-            </g>
-            <!-- Envelope body -->
-            <rect class="env-body" x="12" y="30" width="96" height="62" rx="6"/>
-            <!-- Envelope bottom V-fold -->
-            <path d="M12 30 L60 68 L108 30" stroke="var(--accent)" stroke-width="1.8" fill="none" opacity="0.3"/>
-            <!-- Envelope flap (opens) -->
-            <path class="env-flap" d="M12 30 L60 62 L108 30 L108 30 L12 30 Z"/>
+        <!-- ── Success Circle with Checkmark ── -->
+        <div class="success-circle">
+          <div class="success-ring"></div>
+          <svg class="success-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle class="success-bg" cx="60" cy="60" r="56"/>
+            <polyline class="success-check" points="36,62 52,78 84,42"/>
           </svg>
         </div>
 
-        <h1 class="thankyou-heading">
-          Fast geschafft –<br><span class="accent">check dein Postfach!</span>
+        <h1 class="confirmed-heading">
+          Du bist <span class="green">dabei</span> –<br><span class="accent">willkommen!</span>
         </h1>
 
-        <p class="thankyou-sub">
-          Vielen Dank für deine Anmeldung! Damit du meine Tipps auch wirklich erhältst, folge diesen Schritten:
+        <p class="confirmed-sub">
+          Deine Anmeldung ist jetzt bestätigt. Ab sofort erhältst du jede Woche meine besten Tipps zu Haut, Hormonen und Energie – direkt in dein Postfach.
         </p>
 
-        <!-- Steps -->
-        <div class="steps">
+        <!-- What's Next -->
+        <div class="next-steps">
 
-          <div class="step-card">
-            <div class="step-icon">
+          <div class="next-card">
+            <div class="next-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/>
               </svg>
             </div>
-            <div class="step-content">
-              <h3>Öffne dein Postfach</h3>
-              <p>Du solltest in wenigen Minuten eine E-Mail von <strong>Jasmin Schmidtke</strong> erhalten.</p>
+            <div class="next-content">
+              <h3>Deine erste E-Mail kommt bald</h3>
+              <p>Halte Ausschau nach meiner nächsten E-Mail mit deinen ersten <strong>Insider-Tipps</strong>.</p>
             </div>
           </div>
 
-          <div class="step-card">
-            <div class="step-icon">
+          <div class="next-card">
+            <div class="next-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/>
+                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
               </svg>
             </div>
-            <div class="step-content">
-              <h3>Klicke den Bestätigungslink</h3>
-              <p>In der E-Mail findest du einen <strong>Bestätigungslink</strong>. Erst wenn du darauf klickst, bist du angemeldet.</p>
+            <div class="next-content">
+              <h3>Absender speichern</h3>
+              <p>Speichere <strong>Jasmin Schmidtke</strong> als Kontakt, damit meine E-Mails nicht im Spam landen.</p>
             </div>
           </div>
 
-          <div class="step-card">
-            <div class="step-icon">
+          <div class="next-card">
+            <div class="next-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"/>
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
               </svg>
             </div>
-            <div class="step-content">
-              <h3>Fertig – du bist dabei!</h3>
-              <p>Ab dann erhältst du jede Woche meine Insider-Tipps zu Haut, Hormonen und Energie.</p>
+            <div class="next-content">
+              <h3>Folge mir auf Social Media</h3>
+              <p>Noch mehr Tipps und Inspiration findest du auf meinen <strong>Social-Media-Kanälen</strong>.</p>
             </div>
           </div>
 
         </div>
 
-        <p class="spam-hint">
-          Keine E-Mail erhalten? Schau auch im <strong>Spam-Ordner</strong> oder unter <strong>„Werbung"</strong> nach.
-        </p>
-
-        <a href="index.html" class="back-link">
-          <span class="arrow">←</span> Zurück zur Startseite
+        <a href="index.html" class="confirmed-cta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+          Zur Startseite
         </a>
 
       </div>
@@ -592,7 +550,7 @@
     /* Falling Petals */
     (function() {
       var c = document.getElementById('petals-container');
-      var colors = ['rgba(191,164,146,0.35)','rgba(214,193,178,0.3)','rgba(191,164,146,0.2)','rgba(220,200,185,0.25)'];
+      var colors = ['rgba(191,164,146,0.35)','rgba(214,193,178,0.3)','rgba(107,140,90,0.25)','rgba(191,164,146,0.2)','rgba(220,200,185,0.25)'];
       function make() {
         var p = document.createElement('div');
         p.className = 'petal';
@@ -606,8 +564,8 @@
         c.appendChild(p);
         setTimeout(function() { if (p.parentNode) p.parentNode.removeChild(p); }, 20000);
       }
-      for (var i = 0; i < 10; i++) make();
-      setInterval(function() { if (c.children.length < 12) make(); }, 2500);
+      for (var i = 0; i < 12; i++) make();
+      setInterval(function() { if (c.children.length < 14) make(); }, 2500);
     })();
   </script>
 
