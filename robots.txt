@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /danke.html
+Disallow: /bestaetigt.html
 
 Sitemap: https://www.jasminschmidtke.de/sitemap.xml
