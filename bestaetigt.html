@@ -4,6 +4,15 @@
   <!-- Cookiebot Consent Management – muss als ERSTES im head stehen -->
   <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="d7edd666-c373-4b8b-b522-fe1891c11381" data-blockingmode="auto" type="text/javascript"></script>
 
+  <!-- Google Analytics 4 – von Cookiebot blockiert bis Statistik-Consent -->
+  <script type="text/plain" data-cookieconsent="statistics" async src="https://www.googletagmanager.com/gtag/js?id=G-D2D1N21BTL"></script>
+  <script type="text/plain" data-cookieconsent="statistics">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-D2D1N21BTL', { anonymize_ip: true });
+  </script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anmeldung bestätigt – Jasmin Schmidtke</title>
@@ -545,7 +554,7 @@
         </nav>
         <div class="footer-social">
           <span class="footer-social-label">Folge mir hier</span>
-          <a class="social-icon social-icon--ig" href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <a class="social-icon social-icon--ig" href="https://www.instagram.com/jasmin.schmidtke/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
               <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor" stroke="none"/>
             </svg>
