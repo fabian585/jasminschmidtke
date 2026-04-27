@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Welcher Ü40-Typ bist du? · Fresh &amp; Attraktiv Ü40</title>
+<meta name="description" content="In 60 Sekunden zu deinem persönlichen Ü40-Typ – mit Energie-Plan und Blutwerte-PDF.">
+<meta property="og:title" content="Welcher Ü40-Typ bist du wirklich?">
+<meta property="og:description" content="60 Sekunden – 8 Fragen – dein persönliches Ergebnis. Plus: Die 12 Blutwerte ab Ü40 gratis dazu.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --rose:        #B84A62;
+    --rose-light:  #D67A8C;
+    --rose-soft:   #F5E2E5;
+    --mauve:       #3D2C35;
+    --gold:        #C99A4E;
+    --gold-soft:   #EFE0C2;
+    --sand:        #F5EEE6;
+    --sand-deep:   #EAD9C7;
+    --cream:       #FAF6F0;
+    --ink:         #2A2024;
+    --ink-soft:    #6B5C63;
+    --green:       #4E6B4F;
+    --shadow:      0 6px 24px rgba(184,74,98,.08), 0 1px 3px rgba(61,44,53,.06);
+    --shadow-lg:   0 12px 40px rgba(184,74,98,.15), 0 2px 6px rgba(0,0,0,.05);
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    background:linear-gradient(180deg,#FBF8F3 0%, #F5EEE6 100%);
+    color:var(--ink);
+    line-height:1.55;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+  }
+  h1,h2,h3{
+    font-family:'Cormorant Garamond',Georgia,serif;
+    color:var(--mauve);
+    font-weight:500;
+    letter-spacing:-.01em;
+    margin:0;
+  }
+
+  .container{
+    max-width:680px;
+    margin:0 auto;
+    padding:32px 22px 56px;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+  }
+  .brand-mark{
+    text-align:center;
+    margin-bottom:32px;
+  }
+  .brand-mark .name{
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.45em;
+    color:var(--rose);
+    font-style:italic;
+    line-height:1.05;
+  }
+  .brand-mark .sub{
+    font-size:.7em;
+    color:var(--ink-soft);
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    margin-top:5px;
+    display:block;
+  }
+
+  /* Screens */
+  .screen{
+    display:none;
+    flex:1;
+    flex-direction:column;
+    justify-content:center;
+    animation:fadeIn .5s ease;
+  }
+  .screen.active{display:flex}
+  @keyframes fadeIn{
+    from{opacity:0;transform:translateY(8px)}
+    to{opacity:1;transform:translateY(0)}
+  }
+
+  /* INTRO */
+  .intro{text-align:center}
+  .intro .eyebrow{
+    font-size:.78em;
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:500;
+    margin-bottom:1.4em;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+  }
+  .intro .eyebrow::before,
+  .intro .eyebrow::after{
+    content:'';
+    flex:0 0 24px;
+    height:1px;
+    background:var(--gold);
+  }
+  .intro h1{
+    font-size:2.6em;
+    line-height:1.1;
+    color:var(--rose);
+    font-style:italic;
+    margin-bottom:.4em;
+  }
+  .intro .lead{
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.3em;
+    line-height:1.45;
+    color:var(--mauve);
+    margin:.8em auto 2em;
+    max-width:540px;
+    font-weight:400;
+  }
+  .intro .promises{
+    list-style:none;
+    padding:0;
+    margin:0 auto 2em;
+    max-width:480px;
+    text-align:left;
+  }
+  .intro .promises li{
+    padding:8px 0 8px 32px;
+    position:relative;
+    color:var(--ink);
+    font-size:.96em;
+  }
+  .intro .promises li::before{
+    content:'✓';
+    position:absolute;
+    left:6px;
+    top:8px;
+    color:var(--gold);
+    font-weight:700;
+  }
+
+  /* Buttons */
+  .btn{
+    background:linear-gradient(135deg, var(--rose) 0%, var(--rose-light) 100%);
+    color:#fff;
+    border:none;
+    padding:18px 40px;
+    border-radius:50px;
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    font-size:1em;
+    letter-spacing:.02em;
+    cursor:pointer;
+    box-shadow:var(--shadow-lg);
+    transition:transform .15s, box-shadow .2s;
+  }
+  .btn:hover{transform:translateY(-2px);box-shadow:0 16px 50px rgba(184,74,98,.25)}
+  .btn:active{transform:translateY(0)}
+
+  /* Progress */
+  .progress-text{
+    font-size:.74em;
+    color:var(--ink-soft);
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    margin-bottom:8px;
+    text-align:center;
+    font-weight:500;
+  }
+  .progress-bar{
+    height:5px;
+    background:var(--sand-deep);
+    border-radius:3px;
+    overflow:hidden;
+    margin-bottom:36px;
+  }
+  .progress-fill{
+    height:100%;
+    background:linear-gradient(90deg, var(--rose) 0%, var(--gold) 100%);
+    width:0;
+    transition:width .5s ease;
+    border-radius:3px;
+  }
+
+  /* Question */
+  .question .q-eyebrow{
+    text-align:center;
+    font-size:.74em;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:.8em;
+    font-weight:600;
+  }
+  .question h2{
+    font-size:1.85em;
+    line-height:1.25;
+    color:var(--mauve);
+    margin-bottom:1.5em;
+    text-align:center;
+    font-weight:500;
+  }
+  .answers{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    max-width:520px;
+    margin:0 auto;
+    width:100%;
+  }
+  .answer{
+    background:#fff;
+    border:1.5px solid var(--sand-deep);
+    border-radius:14px;
+    padding:18px 22px;
+    text-align:left;
+    cursor:pointer;
+    font-family:'Inter',sans-serif;
+    font-size:1em;
+    color:var(--ink);
+    line-height:1.4;
+    transition:all .2s;
+    box-shadow:0 1px 3px rgba(0,0,0,.04);
+  }
+  .answer:hover{
+    border-color:var(--rose-light);
+    background:var(--rose-soft);
+    transform:translateX(4px);
+    box-shadow:var(--shadow);
+  }
+  .answer:focus{
+    outline:none;
+    border-color:var(--rose);
+    box-shadow:0 0 0 3px var(--rose-soft);
+  }
+
+  /* Email gate */
+  .email-screen{text-align:center}
+  .email-screen .gate-eyebrow{
+    color:var(--gold);
+    font-size:.74em;
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    font-weight:600;
+    margin-bottom:1.4em;
+  }
+  .email-screen h1{
+    font-size:2.2em;
+    color:var(--rose);
+    font-style:italic;
+    margin-bottom:.4em;
+  }
+  .email-screen .lead{
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.2em;
+    color:var(--mauve);
+    margin:.6em auto 1.6em;
+    max-width:480px;
+    line-height:1.5;
+  }
+  .email-form{max-width:420px;margin:0 auto}
+  .input-field{
+    width:100%;
+    padding:16px 22px;
+    border:1.5px solid var(--sand-deep);
+    border-radius:50px;
+    font-size:1em;
+    font-family:'Inter',sans-serif;
+    background:#fff;
+    color:var(--ink);
+    margin-bottom:14px;
+    transition:border-color .2s, box-shadow .2s;
+  }
+  .input-field:focus{
+    outline:none;
+    border-color:var(--rose);
+    box-shadow:0 0 0 3px var(--rose-soft);
+  }
+  .email-form .btn{width:100%;margin-top:6px}
+  .privacy{
+    font-size:.78em;
+    color:var(--ink-soft);
+    margin-top:1.2em;
+    line-height:1.45;
+  }
+  .privacy a{color:var(--rose);text-decoration:underline}
+  .bonus-callout{
+    background:linear-gradient(135deg, var(--sand) 0%, var(--gold-soft) 100%);
+    border-radius:14px;
+    padding:16px 20px;
+    margin:1.5em auto 1em;
+    max-width:480px;
+    text-align:left;
+    border-left:3px solid var(--gold);
+  }
+  .bonus-callout strong{
+    color:var(--gold);
+    display:block;
+    font-size:.74em;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    margin-bottom:5px;
+    font-weight:700;
+  }
+  .bonus-callout span{
+    color:var(--mauve);
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.15em;
+    font-style:italic;
+    line-height:1.3;
+  }
+
+  /* Loading */
+  .loading{text-align:center;padding:40px 20px}
+  .loading h2{
+    font-size:1.6em;
+    color:var(--mauve);
+    font-style:italic;
+    margin-bottom:1em;
+  }
+  .loader{
+    width:48px;
+    height:48px;
+    border:3px solid var(--sand-deep);
+    border-top:3px solid var(--rose);
+    border-radius:50%;
+    animation:spin 1s linear infinite;
+    margin:0 auto 1.5em;
+  }
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .loading p{
+    color:var(--ink-soft);
+    font-style:italic;
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.1em;
+  }
+
+  /* Result */
+  .result{
+    background:#fff;
+    border-radius:18px;
+    padding:38px 32px;
+    box-shadow:var(--shadow-lg);
+    margin-bottom:24px;
+    border-top:6px solid var(--rose);
+  }
+  .result .type-eyebrow{
+    text-align:center;
+    font-size:.72em;
+    letter-spacing:.26em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:1em;
+    font-weight:600;
+  }
+  .result .type-name{
+    text-align:center;
+    font-family:'Cormorant Garamond',serif;
+    font-size:2.4em;
+    color:var(--rose);
+    font-style:italic;
+    line-height:1.1;
+    margin-bottom:.2em;
+    font-weight:500;
+  }
+  .result .type-tagline{
+    text-align:center;
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.2em;
+    color:var(--mauve);
+    margin-bottom:1.6em;
+    font-style:italic;
+  }
+  .result .description{
+    color:var(--ink);
+    font-size:1em;
+    line-height:1.65;
+    margin-bottom:1.6em;
+  }
+  .result .description b{color:var(--mauve)}
+  .result h3{
+    font-family:'Inter',sans-serif !important;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    font-size:.78em;
+    color:var(--gold);
+    margin:1.6em 0 .8em;
+  }
+  .result ul{
+    list-style:none;
+    padding:0;
+    margin:0 0 1.5em;
+  }
+  .result ul li{
+    padding:8px 0 8px 28px;
+    position:relative;
+    line-height:1.5;
+    color:var(--ink);
+    font-size:.96em;
+  }
+  .result ul li::before{
+    content:'';
+    position:absolute;
+    left:6px;
+    top:14px;
+    width:8px;
+    height:8px;
+    border:1.5px solid var(--rose);
+    border-radius:50%;
+  }
+
+  /* Pitch */
+  .pitch{
+    background:linear-gradient(135deg, var(--mauve) 0%, var(--rose) 100%);
+    color:#fff;
+    border-radius:18px;
+    padding:34px 28px;
+    text-align:center;
+    box-shadow:var(--shadow-lg);
+  }
+  .pitch h3{
+    font-family:'Cormorant Garamond',serif !important;
+    font-size:1.7em !important;
+    color:#fff !important;
+    font-style:italic;
+    margin:0 0 .5em !important;
+    text-transform:none !important;
+    letter-spacing:0 !important;
+    font-weight:500;
+  }
+  .pitch p{
+    color:rgba(255,255,255,.94);
+    font-size:.98em;
+    margin:0 0 1.4em;
+    line-height:1.55;
+  }
+  .pitch p b{color:#fff}
+  .pitch .btn-light{
+    background:#fff;
+    color:var(--rose);
+    border:none;
+    padding:16px 32px;
+    border-radius:50px;
+    font-weight:600;
+    font-size:.98em;
+    cursor:pointer;
+    box-shadow:0 6px 24px rgba(0,0,0,.18);
+    transition:transform .15s;
+    font-family:'Inter',sans-serif;
+  }
+  .pitch .btn-light:hover{transform:translateY(-2px)}
+  .pitch .small{
+    display:block;
+    margin-top:1.1em;
+    font-size:.82em;
+    color:rgba(255,255,255,.78);
+    font-style:italic;
+  }
+
+  .footer{
+    text-align:center;
+    margin-top:32px;
+    font-size:.82em;
+    color:var(--ink-soft);
+    line-height:1.55;
+  }
+  .footer a{color:var(--rose);font-weight:500}
+
+  /* Mobile */
+  @media (max-width:540px){
+    .container{padding:24px 16px 36px}
+    .intro h1{font-size:2.05em}
+    .intro .lead{font-size:1.1em}
+    .question h2{font-size:1.45em}
+    .answer{padding:16px 18px;font-size:.96em}
+    .result{padding:30px 22px}
+    .result .type-name{font-size:1.95em}
+    .pitch{padding:28px 22px}
+    .pitch h3{font-size:1.4em !important}
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="brand-mark">
+    <div class="name">Fresh &amp; Attraktiv Ü40</div>
+    <span class="sub">mit Jasmin Schmidtke</span>
+  </div>
+
+  <!-- ========== INTRO ========== -->
+  <section class="screen intro active" id="screen-intro">
+    <div class="eyebrow">In 60 Sekunden zu deinem Ergebnis</div>
+    <h1>Welcher Ü40-Typ bist du wirklich?</h1>
+    <p class="lead">
+      Finde heraus, was hinter deiner Müdigkeit, deinen Veränderungen und deinem Spiegelbild steht — und welche 3 Hebel JETZT bei DIR den größten Unterschied machen.
+    </p>
+    <ul class="promises">
+      <li>8 Fragen · ehrlich beantwortet</li>
+      <li>Dein persönliches Ergebnis sofort</li>
+      <li>Plus: „Die 12 Blutwerte ab Ü40" gratis dazu</li>
+    </ul>
+    <button class="btn" onclick="startQuiz()">Test jetzt starten →</button>
+    <p style="font-size:.78em;color:var(--ink-soft);margin-top:1.5em;font-style:italic;">
+      Wissenschaftlich orientiert · Kein Verkaufsdruck
+    </p>
+  </section>
+
+  <!-- ========== QUESTIONS ========== -->
+  <section class="screen" id="screen-questions">
+    <div class="progress-text" id="progress-label">Frage 1 von 8</div>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+    <div class="question" id="question-content"></div>
+  </section>
+
+  <!-- ========== EMAIL ========== -->
+  <section class="screen email-screen" id="screen-email">
+    <div class="gate-eyebrow">Dein Ergebnis ist fertig</div>
+    <h1>Wohin schicken wir's?</h1>
+    <p class="lead">
+      Trag deinen Vornamen und deine E-Mail ein — dein Ergebnis erscheint sofort und kommt zusätzlich als PDF in dein Postfach.
+    </p>
+    <div class="bonus-callout">
+      <strong>Dein Geschenk dazu</strong>
+      <span>„Die 12 wichtigsten Blutwerte ab Ü40" — als PDF mit Erklärungen</span>
+    </div>
+    <form class="email-form" id="email-form" onsubmit="submitEmail(event)">
+      <input type="text" class="input-field" id="user-name" placeholder="Dein Vorname" required>
+      <input type="email" class="input-field" id="user-email" placeholder="deine@email.de" required>
+      <button type="submit" class="btn">Mein Ergebnis ansehen →</button>
+    </form>
+    <p class="privacy">
+      Wir gehen sorgsam mit deinen Daten um. Du kannst dich jederzeit wieder austragen.<br/>
+      <a href="#">Datenschutz</a> · <a href="#">Impressum</a>
+    </p>
+  </section>
+
+  <!-- ========== LOADING ========== -->
+  <section class="screen" id="screen-loading">
+    <div class="loading">
+      <div class="loader"></div>
+      <h2>Wir analysieren deine Antworten…</h2>
+      <p>Deine 4 Profilachsen werden ausgewertet.</p>
+    </div>
+  </section>
+
+  <!-- ========== RESULT ========== -->
+  <section class="screen" id="screen-result">
+    <div class="result" id="result-content"></div>
+    <div class="pitch">
+      <h3>Dein nächster Schritt mit Jasmin</h3>
+      <p id="pitch-text"></p>
+      <button class="btn-light" onclick="goToMasterclass()">Mehr erfahren →</button>
+      <span class="small">Aktuell auf der Warteliste · Nächster Start September 2026</span>
+    </div>
+    <div class="footer">
+      <p>Du hast eine Frage zu deinem Ergebnis? Schreib mir auf Instagram <a href="https://instagram.com/" target="_blank">@jasminschmidtke</a></p>
+    </div>
+  </section>
+
+</div>
+
+<script>
+/* ===========================================================
+   QUIZ-DATEN — 8 Fragen, 4 Typen
+   Typen: E = Energie | H = Hormon | I = Identität | R = Reset
+   =========================================================== */
+
+const QUESTIONS = [
+  {
+    text: "Wie alt bist du gerade?",
+    eyebrow: "Damit wir dein Ergebnis richtig einordnen",
+    answers: [
+      { label: "35–39 Jahre · Pre-Wechseljahre", scores: {} },
+      { label: "40–44 Jahre · erste Veränderungen", scores: {} },
+      { label: "45–49 Jahre · mittendrin", scores: { H:1 } },
+      { label: "50+ Jahre · neue Lebensphase", scores: { H:1 } }
+    ]
+  },
+  {
+    text: "Wie ist deine Energie über den Tag?",
+    eyebrow: "Frage 2 · Energie",
+    answers: [
+      { label: "Stabil und gut – ich komme gut durch", scores: { R:1 } },
+      { label: "Ab nachmittags lasse ich nach", scores: { E:2 } },
+      { label: "Ich schleppe mich oft durch den Tag", scores: { E:3 } },
+      { label: "Wie eine Achterbahn – mal so, mal so", scores: { H:2, E:1 } }
+    ]
+  },
+  {
+    text: "Wie schläfst du in den letzten 6 Monaten?",
+    eyebrow: "Frage 3 · Schlaf",
+    answers: [
+      { label: "Erholsam, ich wache ausgeruht auf", scores: { R:1 } },
+      { label: "Mal gut, mal nicht – wechselhaft", scores: { I:1, E:1 } },
+      { label: "Ich wache nachts oft auf", scores: { H:2, E:1 } },
+      { label: "Ich schlafe schlecht ein und wache erschöpft auf", scores: { E:3 } }
+    ]
+  },
+  {
+    text: "Was zeigt dir dein Spiegel — und was fühlst du dabei?",
+    eyebrow: "Frage 4 · Identität",
+    answers: [
+      { label: "Ich erkenne mich gut, ich bin im Reinen", scores: { R:1 } },
+      { label: "Ich sehe Veränderungen, akzeptiere sie aber", scores: { R:1, I:1 } },
+      { label: "Ich erkenne mich nicht mehr wirklich", scores: { I:3 } },
+      { label: "Ich vermeide den Spiegel manchmal lieber", scores: { I:3, H:1 } }
+    ]
+  },
+  {
+    text: "Wie ist dein Verhältnis zu deinem Körper gerade?",
+    eyebrow: "Frage 5 · Körpergefühl",
+    answers: [
+      { label: "Ich vertraue ihm und arbeite mit ihm", scores: { R:1 } },
+      { label: "Ich verstehe ihn nicht mehr", scores: { H:3, I:1 } },
+      { label: "Ich kämpfe gegen ihn (Gewicht, Symptome)", scores: { H:2, I:1 } },
+      { label: "Ich habe ihn etwas aus den Augen verloren", scores: { I:2 } }
+    ]
+  },
+  {
+    text: "Hast du schon mal ausführliche Bluttests / einen Hormoncheck gemacht?",
+    eyebrow: "Frage 6 · Daten",
+    answers: [
+      { label: "Ja, ausführlich (privat oder beim Spezialisten)", scores: { R:2 } },
+      { label: "Nur das Übliche beim Hausarzt", scores: { I:1, H:1 } },
+      { label: "Nein, nie – kein Plan, was relevant ist", scores: { H:2, R:1 } },
+      { label: "Möchte ich, wusste aber nicht, wo anfangen", scores: { H:3 } }
+    ]
+  },
+  {
+    text: "Was hast du schon alles probiert, um dich besser zu fühlen?",
+    eyebrow: "Frage 7 · Bisherige Wege",
+    answers: [
+      { label: "Diäten und Ernährungsumstellungen", scores: { H:2 } },
+      { label: "Sport, Yoga, Workouts", scores: { E:1, R:1 } },
+      { label: "Cremes, Pflege und Beauty-Routinen", scores: { I:2 } },
+      { label: "Vieles einzeln – nichts dauerhaft", scores: { R:3 } }
+    ]
+  },
+  {
+    text: "Was wünschst du dir am meisten?",
+    eyebrow: "Letzte Frage · Vision",
+    answers: [
+      { label: "Wieder echte, stabile Energie", scores: { E:3 } },
+      { label: "Mich wieder erkennen und mögen", scores: { I:3 } },
+      { label: "Endlich verstehen, was in meinem Körper passiert", scores: { H:3 } },
+      { label: "Einen klaren Plan, dem ich vertrauen kann", scores: { R:3 } }
+    ]
+  }
+];
+
+/* ===========================================================
+   ERGEBNIS-TYPEN
+   =========================================================== */
+
+const TYPES = {
+  E: {
+    name: "Der Energie-Typ",
+    tagline: "Du hast keine Energie mehr – und du weißt nicht, warum.",
+    color: "#B84A62",
+    description: "Dein dominantes Thema ist <b>Erschöpfung</b>. Müdigkeit ab dem Nachmittag, schlechter Schlaf, das Gefühl ‚durchzuhalten' statt zu leben. Hinter all dem steht meistens ein Cortisol-Schlaf-Mikronährstoff-Dreieck, das aus dem Takt geraten ist – und das sich in 8–12 Wochen messbar zurückholen lässt. Du brauchst keine neue Diät und keinen härteren Sport. Du brauchst einen Plan, der dein Nervensystem zuerst wieder herunterfährt.",
+    needs: [
+      "Cortisol-Tagesrhythmus prüfen (z. B. Speicheltest)",
+      "Schlaf-Routine: 4 abendliche Mikro-Rituale, die das Nervensystem herunterfahren",
+      "Mikronährstoff-Check: Vitamin D, B12, Magnesium, Eisen, Omega-3",
+      "Krafttraining 3×20 Min als Energie-Anker (kein Cardio – das verstärkt das Problem)"
+    ],
+    pitch: "Genau für deinen Typ haben wir die <b>Phase 2 der Masterclass</b> gebaut: Schlaf, Cortisol &amp; Nervensystem + Mikronährstoff-Modul + Krafttraining-Routinen für zuhause."
+  },
+  H: {
+    name: "Der Hormon-Typ",
+    tagline: "Dein Körper folgt nicht mehr deinen Regeln.",
+    color: "#C99A4E",
+    description: "Dein dominantes Thema sind die <b>hormonellen Veränderungen</b> ab Ü40 – Östrogen, Progesteron, Testosteron, Schilddrüse. Achterbahn-Energie, Bauchfett, das nicht weggeht, Stimmungsschwankungen, Zyklus-Verschiebungen sind keine Einbildung. Du brauchst nicht ‚mehr Disziplin', sondern <b>Daten</b> – und jemanden, der sie für dich übersetzt. Wenn du verstehst, was passiert, fällt die Strategie fast von selbst.",
+    needs: [
+      "Großer Bluttest: 12 Werte, die ab Ü40 wirklich zählen (nicht nur ‚Standard')",
+      "Hormonfreundliche Ernährung: Eiweiß-Ziel, Blutzucker-Stabilität, Leberunterstützung",
+      "Phyto-Östrogene und Mikronährstoffe gezielt – nicht zufällig",
+      "Verstehen, was die Werte bedeuten – damit kein „alles okay" deine Symptome wegerklärt"
+    ],
+    pitch: "Genau hier setzt unser <b>Lab-Literacy-Modul</b> an: Du lernst, deine eigenen Blutwerte zu lesen – und welche 12 Werte ab Ü40 wirklich entscheidend sind."
+  },
+  I: {
+    name: "Der Identitäts-Typ",
+    tagline: "Innerlich Mitte 30, im Spiegel jemand anderes.",
+    color: "#3D2C35",
+    description: "Dein dominantes Thema ist die <b>Identitäts-Lücke</b>. Innerlich fühlst du dich lebendig, neugierig, in deiner Mitte – aber dein Körper, dein Spiegel, dein Stil schicken eine andere Botschaft. Das ist kein oberflächliches Problem. Es ist die mit Abstand häufigste Schmerzursache von Frauen Ü40 – und sie lässt sich nicht mit ‚jünger aussehen' lösen, sondern nur mit ‚wieder DU sein'.",
+    needs: [
+      "Identitäts-Anker: Wer willst du in 6 Monaten sein? (nicht jünger – wieder DU)",
+      "Sichtbare Mini-Wins jede Woche – mit Vorher/Nachher-Foto-Anker",
+      "Stilupdate, Haltung, Ausstrahlung – nicht teuer, nur bewusst",
+      "Community von Frauen, die dieselbe Reise gehen – ohne resignativen Ton"
+    ],
+    pitch: "Phase 1 + 3 der Masterclass arbeiten genau daran: <b>Identitäts-Anker</b>, sichtbare Transformation, Stil-Reset, Community – ohne Anti-Aging-Frame."
+  },
+  R: {
+    name: "Der Reset-Typ",
+    tagline: "Du willst System statt Symptom-Bekämpfung.",
+    color: "#4E6B4F",
+    description: "Du bist die analytische, vorausschauende Frau. Du hast vieles probiert, vieles gelesen, vieles einzeln gemacht – aber nichts hat sich zu einem stabilen System verbunden. Du brauchst keine weiteren Tipps. Du brauchst eine <b>Reihenfolge</b>, ein <b>Tracking</b>, eine <b>Begleitung</b>, der du vertrauen kannst – und die Erlaubnis, dich selbst zur Priorität zu machen.",
+    needs: [
+      "Klare 12-Wochen-Sequenz – statt parallel an 5 Stellen zu schrauben",
+      "Tracking-Dashboard: sichtbarer Fortschritt jede Woche",
+      "Live-Q&amp;A einmal monatlich, damit deine Fragen nicht ungeklärt bleiben",
+      "Eine Frau als Begleiterin, die diesen Weg selbst gegangen ist"
+    ],
+    pitch: "Die Masterclass ist <b>genau dafür</b> gebaut: 12 Wochen Kern-Programm, klare Reihenfolge, monatliches Live-Q&amp;A, Community + 6 Monate Begleitung."
+  }
+};
+
+/* ===========================================================
+   STATE & LOGIC
+   =========================================================== */
+
+let state = {
+  current: 0,
+  scores: { E:0, H:0, I:0, R:0 },
+  answers: [],
+  user: { name: "", email: "" },
+  result: null
+};
+
+function showScreen(id){
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({ top:0, behavior:'smooth' });
+}
+
+function startQuiz(){
+  state.current = 0;
+  state.scores = { E:0, H:0, I:0, R:0 };
+  state.answers = [];
+  renderQuestion();
+  showScreen('screen-questions');
+}
+
+function renderQuestion(){
+  const q = QUESTIONS[state.current];
+  const el = document.getElementById('question-content');
+  el.innerHTML = `
+    <div class="q-eyebrow">${q.eyebrow}</div>
+    <h2>${q.text}</h2>
+    <div class="answers">
+      ${q.answers.map((a, i) => `<button class="answer" onclick="selectAnswer(${i})">${a.label}</button>`).join('')}
+    </div>
+  `;
+  const total = QUESTIONS.length;
+  document.getElementById('progress-label').textContent = `Frage ${state.current + 1} von ${total}`;
+  document.getElementById('progress-fill').style.width = `${(state.current / total) * 100}%`;
+}
+
+function selectAnswer(idx){
+  const q = QUESTIONS[state.current];
+  const a = q.answers[idx];
+  for (const [k, v] of Object.entries(a.scores || {})) {
+    state.scores[k] = (state.scores[k] || 0) + v;
+  }
+  state.answers.push({ q: state.current, a: idx });
+  state.current++;
+
+  if (state.current < QUESTIONS.length) {
+    setTimeout(renderQuestion, 200);
+  } else {
+    document.getElementById('progress-fill').style.width = '100%';
+    setTimeout(() => showScreen('screen-email'), 350);
+  }
+}
+
+function submitEmail(e){
+  e.preventDefault();
+  state.user.name = document.getElementById('user-name').value.trim();
+  state.user.email = document.getElementById('user-email').value.trim();
+
+  // Gewinner-Typ ermitteln
+  const winner = Object.entries(state.scores)
+    .sort((a, b) => b[1] - a[1])[0][0];
+  state.result = winner;
+
+  /* ============================================================
+     >>> INTEGRATIONS-PUNKT FÜR EUREN E-MAIL-ANBIETER <<<
+     ============================================================
+     Hier eure echte E-Mail-Integration einbauen. Beispiele:
+
+     – ConvertKit (Kit):
+       fetch('https://api.convertkit.com/v3/forms/YOUR_FORM_ID/subscribe', {
+         method:'POST',
+         headers:{'Content-Type':'application/json'},
+         body: JSON.stringify({
+           api_key:'YOUR_API_KEY',
+           email: state.user.email,
+           first_name: state.user.name,
+           tags:[`Quiz_Typ_${winner}`]
+         })
+       });
+
+     – ActiveCampaign / Brevo / Klaviyo: ähnliches Pattern,
+       jeweils eigenen Endpoint nutzen.
+
+     – Wenn ihr auf einer eigenen Domain hostet, lieber einen
+       eigenen Server-Endpoint bauen, der den API-Key sicher hält.
+     ============================================================ */
+  console.log('[Quiz] Lead:', state.user, '· Typ:', winner, '· Scores:', state.scores);
+
+  showScreen('screen-loading');
+  setTimeout(showResult, 1800);
+}
+
+function showResult(){
+  const t = TYPES[state.result];
+  const el = document.getElementById('result-content');
+  el.style.borderTopColor = t.color;
+  el.innerHTML = `
+    <div class="type-eyebrow">Dein Ü40-Typ${state.user.name ? ', ' + state.user.name : ''}</div>
+    <h2 class="type-name" style="color:${t.color}">${t.name}</h2>
+    <p class="type-tagline">„${t.tagline}"</p>
+    <p class="description">${t.description}</p>
+    <h3>Was du jetzt brauchst</h3>
+    <ul>${t.needs.map(n => `<li>${n}</li>`).join('')}</ul>
+  `;
+  document.getElementById('pitch-text').innerHTML = t.pitch + ' Aktuell sammeln wir die Warteliste für den Start im September.';
+  showScreen('screen-result');
+}
+
+function goToMasterclass(){
+  /* >>> Hier eure Salespage- oder Warteliste-URL einsetzen <<< */
+  window.location.href = '#warteliste';
+  // alternativ: window.open('https://deine-salespage.de', '_blank');
+}
+</script>
+
+</body>
+</html>
